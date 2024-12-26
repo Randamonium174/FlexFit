@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Membership Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('gymbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: yellow;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+            border-bottom: 2px solid white;
+        }
+
+        /* Select & Compare Section */
+        .select-compare-section {
+            margin-top: 150px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .select-compare-section select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            width: 30%;
+            border-radius: 5px;
+            border: none;
+            background-color: #222;
+            color: white;
+        }
+
+        .select-compare-section button {
+            padding: 15px 30px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .select-compare-section button:hover {
+            background-color: #ffd700;
+        }
+
+        /* Card for Comparison */
+        .comparison-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            width: 80%;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow cards to wrap if the screen is small */
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: yellow;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+        .card ul {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Fixed Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="logo.png" alt="Gym Logo">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </div>
+
+    <!-- Title -->
+    <h1>Compare Our Membership Plans</h1>
+
+    <!-- Select & Compare Section -->
+    <div class="select-compare-section">
+        <h2>Select the Plans You Want to Compare</h2>
+        
+        <select id="plan1">
+            <option value="">Select a Plan 1</option>
+            <option value="plan1">Flex Starter</option>
+            <option value="plan2">Strength Builder</option>
+            <option value="plan3">Power Surge</option>
+            <option value="plan4">Peak Performance</option>
+        </select>
+        
+        <select id="plan2">
+            <option value="">Select a Plan 2</option>
+            <option value="plan1">Flex Starter</option>
+            <option value="plan2">Strength Builder</option>
+            <option value="plan3">Power Surge</option>
+            <option value="plan4">Peak Performance</option>
+        </select>
+        
+        <button onclick="comparePlans()">Compare Plans</button>
+    </div>
+
+    <!-- Comparison Cards -->
+    <div id="comparisonCards" class="comparison-cards" style="display:none;">
+        <!-- Plan 1 Card -->
+        <div id="plan1Card" class="card">
+            <h3>Plan 1: Flex Starter</h3>
+            <p><strong>Duration:</strong> 1 Month</p>
+            <p><strong>Price:</strong> RS 599</p>
+            <p><strong>Personal Trainer:</strong> No Trainer</p>
+            <ul>
+                <li>Basic gym access</li>
+                <li>Affordable price for short term</li>
+                <li>Good for those on a budget</li>
+            </ul>
+            <h4>Pros:</h4>
+            <ul>
+                <li>Great for beginners</li>
+                <li>Low cost</li>
+            </ul>
+            <h4>Cons:</h4>
+            <ul>
+                <li>No personal trainer</li>
+                <li>Limited facilities</li>
+            </ul>
+        </div>
+
+        <!-- Plan 2 Card -->
+        <div id="plan2Card" class="card">
+            <h3>Plan 2: Strength Builder</h3>
+            <p><strong>Duration:</strong> 3 Months</p>
+            <p><strong>Price:</strong> RS 1299</p>
+            <p><strong>Personal Trainer:</strong> 1-Month Training (RS 1000)</p>
+            <ul>
+                <li>Access to premium equipment</li>
+                <li>Additional training options</li>
+            </ul>
+            <h4>Pros:</h4>
+            <ul>
+                <li>Great for those looking for more serious training</li>
+                <li>Includes personal trainer option</li>
+            </ul>
+            <h4>Cons:</h4>
+            <ul>
+                <li>Higher price compared to basic plans</li>
+                <li>Limited duration without commitment</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    
+
+    <script>
+        function comparePlans() {
+            const plan1 = document.getElementById('plan1').value;
+            const plan2 = document.getElementById('plan2').value;
+            
+            if (!plan1 || !plan2) {
+                alert('Please select both plans to compare!');
+                return;
+            }
+
+            const plans = {
+                plan1: { name: 'Flex Starter', duration: '1 Month', price: 'RS 599', personalTrainer: 'No Trainer', pros: ['Basic gym access', 'Affordable price for short term', 'Good for those on a budget'], cons: ['No personal trainer', 'Limited facilities'] },
+                plan2: { name: 'Strength Builder', duration: '3 Months', price: 'RS 1299', personalTrainer: '1-Month Training (RS 1000)', pros: ['Great for those looking for more serious training', 'Includes personal trainer option'], cons: ['Higher price compared to basic plans', 'Limited duration without commitment'] },
+                plan3: { name: 'Power Surge', duration: '6 Months', price: 'RS 2499', personalTrainer: '3-Month Training (RS 1500)', pros: ['Access to all premium equipment', 'Personal trainer included'], cons: ['High cost', 'Long-term commitment required'] },
+                plan4: { name: 'Peak Performance', duration: '12 Months', price: 'RS 4999', personalTrainer: 'Full-year Training', pros: ['Unlimited access to all facilities', 'Personal trainer full-time'], cons: ['Very expensive', 'Long-term commitment'] },
+            };
+
+            const plan1Data = plans[plan1];
+            const plan2Data = plans[plan2];
+
+            // Show Comparison Cards
+            document.getElementById('comparisonCards').style.display = 'flex';
+
+            // Update Plan 1 Card
+            document.getElementById('plan1Card').innerHTML = `
+                <h3>Plan 1: ${plan1Data.name}</h3>
+                <p><strong>Duration:</strong> ${plan1Data.duration}</p>
+                <p><strong>Price:</strong> ${plan1Data.price}</p>
+                <p><strong>Personal Trainer:</strong> ${plan1Data.personalTrainer}</p>
+                <ul>
+                    ${plan1Data.pros.map(pro => `<li>${pro}</li>`).join('')}
+                </ul>
+                <h4>Pros:</h4>
+                <ul>
+                    ${plan1Data.pros.map(pro => `<li>${pro}</li>`).join('')}
+                </ul>
+                <h4>Cons:</h4>
+                <ul>
+                    ${plan1Data.cons.map(con => `<li>${con}</li>`).join('')}
+                </ul>
+            `;
+
+            // Update Plan 2 Card
+            document.getElementById('plan2Card').innerHTML = `
+                <h3>Plan 2: ${plan2Data.name}</h3>
+                <p><strong>Duration:</strong> ${plan2Data.duration}</p>
+                <p><strong>Price:</strong> ${plan2Data.price}</p>
+                <p><strong>Personal Trainer:</strong> ${plan2Data.personalTrainer}</p>
+                <ul>
+                    ${plan2Data.pros.map(pro => `<li>${pro}</li>`).join('')}
+                </ul>
+                <h4>Pros:</h4>
+                <ul>
+                    ${plan2Data.pros.map(pro => `<li>${pro}</li>`).join('')}
+                </ul>
+                <h4>Cons:</h4>
+                <ul>
+                    ${plan2Data.cons.map(con => `<li>${con}</li>`).join('')}
+                </ul>
+            `;
+        }
+    </script>
+
+</body>
+</html>

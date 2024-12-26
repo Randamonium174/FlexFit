@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #252525; /* Black background */
+            color: #fff; /* White text */
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: #000; /* Black background */
+            padding: 5px 20px; /* Reduced padding for a thinner navbar */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #FFEB3B; /* Yellow accent line */
+        }
+
+        nav .logo img {
+            width: 80px; /* Adjust logo size */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FFEB3B; /* Yellow color */
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px; /* Adjusted padding for smaller navbar */
+            border: 2px solid transparent; /* Default border for button outline */
+            border-radius: 5px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFC107; /* Darker yellow on hover */
+            border-color: #FFEB3B; /* Show yellow outline on hover */
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #000;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Main content section for feedback form */
+        .feedback-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        /* Feedback Form Container */
+        .feedback-form-container {
+            width: 60%;
+            padding: 30px;
+            background-color: #000000; /* Grey background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .feedback-form-container h2 {
+            font-size: 24px;
+            color: #FFEB3B; /* Yellow color */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .feedback-form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 16px;
+        }
+
+        .feedback-form input, .feedback-form textarea, .feedback-form select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 2px solid #FFEB3B; /* Yellow border */
+            border-radius: 5px;
+            background-color: #222; /* Dark background for form fields */
+            color: #fff;
+        }
+
+        .feedback-form textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #FFEB3B; /* Yellow button */
+            color: #333;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #FFC107; /* Darker yellow on hover */
+            transform: scale(1.05); /* Slightly enlarges on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="gymlogo.png" alt="Logo" />
+        </div>
+        <ul>
+            <li><a href="home.html" class="home-button">Home</a></li> <!-- Home button with outline -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="feedback-page">
+        <div class="feedback-form-container">
+            <h2>We Value Your Feedback</h2>
+            <p>Please fill out the form below to share your feedback with us. Your input helps us improve our services and enhance your experience.</p>
+
+            <!-- Feedback Form -->
+            <form id="feedback-form" action="#" method="POST" class="feedback-form" onsubmit="return validateForm()">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" placeholder="Describe your experience or provide feedback" rows="5" required></textarea>
+
+                <label for="thoughts">Share Your Thoughts:</label>
+                <textarea id="thoughts" name="thoughts" placeholder="Additional comments or suggestions" rows="5"></textarea> <!-- Textbox for additional thoughts -->
+
+                <label for="rating">Rate our Service:</label>
+                <select id="rating" name="rating" required>
+                    <option value="">Select rating</option>
+                    <option value="excellent">Excellent</option>
+                    <option value="good">Good</option>
+                    <option value="average">Average</option>
+                    <option value="poor">Poor</option>
+                </select>
+
+                <button type="submit" class="submit-button">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p> <!-- Copyright information -->
+    </footer>
+
+    <script>
+        // JavaScript function for form validation
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const feedback = document.getElementById("feedback").value.trim();
+            const rating = document.getElementById("rating").value;
+            const thoughts = document.getElementById("thoughts").value.trim();
+
+            // Name Validation: It should not be empty
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+
+            // Email Validation: Basic email format check
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Feedback Validation: It should not be empty
+            if (feedback === "") {
+                alert("Please provide your feedback.");
+                return false;
+            }
+
+            // Rating Validation: It should not be empty
+            if (rating === "") {
+                alert("Please select a rating.");
+                return false;
+            }
+
+            // Optional: Thoughts Textarea (no validation, as it's optional)
+            // You can add validation for thoughts if needed
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>

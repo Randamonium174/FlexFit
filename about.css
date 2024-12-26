@@ -1,0 +1,194 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  background: url('gymbg.jpg') no-repeat center center fixed; /* Background Image */
+  background-size: cover;
+  color: #fff;
+}
+
+h1, h2, h3 {
+  color: #ffd700; /* Yellow */
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  position: absolute;
+  left: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #ffd700;
+  color: #333;
+}
+
+/* Banner */
+.banner {
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.banner-content h2 {
+  font-size: 2.5rem;
+}
+
+.banner-content p {
+  font-size: 1.5rem;
+}
+
+/* About Section */
+.about-section {
+  padding: 60px 20px;
+  background-color: #000000;
+  color: #fffafa;
+}
+
+.about-owner .content-box {
+  display: flex;
+  flex-direction: row-reverse; /* Align photo on the right */
+  align-items: flex-start;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Shadow to make the box stand out */
+  margin: 20px 0;
+}
+
+.owner-photo img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  margin-left: 2rem; /* Add spacing between photo and description */
+  border: 2px solid #ffd700; /* Golden border around the image */
+}
+
+.owner-info {
+  flex: 1;
+  color: #fff;
+}
+
+.owner-info h2 {
+  font-size: 2rem;
+  color: #ffd700;
+}
+
+.owner-info h3 {
+  font-size: 1.5rem;
+  color: #ffd700;
+}
+
+.owner-info p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* About Us Section */
+.about-us {
+  display: flex;
+  flex-direction: row-reverse; /* Align image on the right */
+  align-items: flex-start;
+  gap: 2rem; /* Add space between image and content */
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+  color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Shadow to make the box stand out */
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.about-content {
+  flex: 2;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  color: #ffd700;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.about-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.about-content ul li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.about-content ul li::before {
+  content: "•";
+  color: #ffd700;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Footer */
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

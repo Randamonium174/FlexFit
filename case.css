@@ -1,0 +1,146 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Background */
+body {
+    background: url('bg2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f4f4f4;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1, h3 {
+    color: #ffd700;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    color: #f4f4f4;
+    padding: 5px 10px;
+    transition: background 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    background-color: #ffd700;
+    color: #333333;
+    border-radius: 5px;
+}
+
+/* Section Styling */
+section {
+    padding: 50px 5%;
+    background: rgba(0, 0, 0, 0.7); /* Adds transparency for readability */
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.intro-section, 
+.progression-section, 
+.challenges-section {
+    margin: 20px auto;
+}
+
+/* Section Divider */
+.section-divider {
+    width: 90%;
+    margin: 30px auto;
+    border-bottom: 2px solid #ffd700;
+}
+
+/* Zigzag Layout */
+.zigzag-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.zigzag-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.zigzag-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.description-box {
+    background-color: #444444;
+    padding: 20px;
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    width: 50%;
+}
+
+.description-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.description-box p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.retro-image {
+    width: 300px;
+    height: auto;
+    border: 10px solid #ffd700;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background-color: #ffd700;
+    color: #333333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffcc33;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #f4f4f4;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}

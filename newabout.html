@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Fit</title>
+  <style>
+    /* Basic Styles for Layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    /* About Section */
+    .about-section {
+      background: #f9f9f9;
+      padding: 40px 0;
+    }
+
+    .about-owner {
+      background: #eaf2f8;
+      padding: 40px 0;
+    }
+
+    .owner-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .owner-photo img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .owner-info h2 {
+      margin-top: 0;
+    }
+
+    .owner-section {
+      margin-top: 20px;
+    }
+
+    .owner-section ul {
+      padding-left: 20px;
+    }
+
+    .owner-section ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- About FLEXFIT -->
+  <section id="about-us" class="about-section">
+    <div class="container">
+      <h1>Welcome to Flex Fit</h1>
+      <p>
+        Welcome to Flex Fit, where your dream physique becomes a reality. Our mission is to help you achieve your fitness goals—whether that's fat loss, muscle gain, weight loss, weight gain, or preparing for a natural bodybuilding contest. We understand that every body is different, and we are dedicated to crafting personalized training programs that bring out the best in you.
+      </p>
+
+      <h2>Our Vision</h2>
+      <p>
+        At Flex Fit, we believe that everyone has the potential to transform their body and their life. Our primary focus is to help individuals achieve their dream physique, whatever that may be. Whether you're aiming to lose fat, gain muscle, improve your strength, or compete at the highest level in bodybuilding, we have the tools and expertise to make it happen.
+      </p>
+
+      <h2>What We Specialize In</h2>
+      <ul>
+        <li><strong>Fat Loss:</strong> Our fat loss programs are designed to help you shed excess weight while maintaining lean muscle.</li>
+        <li><strong>Muscle Gain:</strong> Whether you're a beginner or an experienced lifter, we provide specialized muscle-building programs to help you bulk up.</li>
+        <li><strong>Weight Loss:</strong> Our weight loss plans focus on sustainable, healthy weight reduction.</li>
+        <li><strong>Weight Gain:</strong> We provide nutrition and training programs to help you increase lean muscle mass.</li>
+        <li><strong>Natural Contest Prep for Bodybuilding:</strong> Comprehensive contest preparation programs with a focus on conditioning, peak-week strategies, and posing practice.</li>
+        <li><strong>Men's Physique Training:</strong> Programs tailored to developing aesthetics required for men's physique competitions.</li>
+      </ul>
+
+      <h2>Our Approach</h2>
+      <p>
+        At Flex Fit, we take a personalized approach to every client’s fitness goals. Our certified trainers work closely with you to understand your unique needs and design a program tailored to your body type, lifestyle, and objectives. We focus on progress over perfection and aim to help you achieve measurable results.
+      </p>
+
+      <h2>What We Offer</h2>
+      <ul>
+        <li><strong>Personalized Training Plans:</strong> Custom workout programs tailored to your specific goals.</li>
+        <li><strong>Nutrition Coaching:</strong> Guidance on fueling your body for maximum results.</li>
+        <li><strong>Natural Contest Prep:</strong> Comprehensive preparation for bodybuilders and men's physique athletes.</li>
+        <li><strong>Group Classes & Bootcamps:</strong> High-intensity group sessions for fat loss and strength building.</li>
+        <li><strong>Recovery & Mobility:</strong> Services such as massage therapy, stretching, and mobility training to prevent injuries.</li>
+      </ul>
+
+      <h2>Why Choose Flex Fit?</h2>
+      <p>
+        At Flex Fit, we're not just about lifting weights; we’re about lifting lives. Our team provides the tools, motivation, and support you need to achieve your dream physique. Whether you’re looking to lose fat, build muscle, or prep for a bodybuilding competition, we’re here to guide you every step of the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section class="about-owner">
+    <div class="container owner-box">
+      <!-- Owner Photo -->
+      <div class="owner-photo">
+        <img id="owner-photo" src="owner.jpg" alt="M Sanjay Raja">
+      </div>
+
+      <!-- Owner Info -->
+      <div class="owner-info">
+        <h2>M Sanjay Raja</h2>
+        <h3>Founder & Head Coach, FLEXFIT</h3>
+        <p>Hi, I’m M Sanjay Raja, the founder and head coach here at FLEXFIT. Fitness has been my lifelong passion, and I’m dedicated to helping others achieve their dream physiques—whether that's through fat loss, muscle gain, weight loss, weight gain, or even natural contest prep for bodybuilding and men's physique.</p>
+
+        <div class="owner-section">
+          <h3>My Journey</h3>
+          <p>
+            My own fitness journey started when I realized the power that a well-structured training program, combined with the right nutrition and mindset, could have not only on the body but also on the mind. Over the years, I’ve learned that everyone’s fitness journey is unique. That’s why I decided to dedicate my career to helping others achieve their best selves—no matter where they’re starting from.
+          </p>
+        </div>
+
+        <div class="owner-section">
+          <h3>My Approach</h3>
+          <ul>
+            <li><strong>Personalized Programs:</strong> Tailored to your unique goals and lifestyle.</li>
+            <li><strong>Mindset & Motivation:</strong> Focus on the mental and physical aspects of fitness.</li>
+            <li><strong>Sustainable Results:</strong> Achieve long-term transformations.</li>
+          </ul>
+        </div>
+
+        <div class="owner-section">
+          <h3>Why I Do What I Do</h3>
+          <p>
+            Helping people transform their bodies and lives is my passion. I’m here to support you, cheer you on, and guide you through every milestone.
+          </p>
+        </div>
+
+        <div class="owner-section">
+          <h3>Let’s Work Together</h3>
+          <p>
+            Wherever you are on your fitness journey, let’s make your goals a reality together. I believe in your potential and am excited to help you reach it!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexFit Gym Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #333333, #555555);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #chat-container {
+      width: 85%;
+      max-width: 900px;
+      height: 80vh;
+      background-color: #444444;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    #chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333333;
+      padding: 15px;
+      border-bottom: 1px solid #444444;
+    }
+
+    #chat-header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #FFD700;
+    }
+
+    #chat-header a {
+      background-color: transparent;
+      border: 2px solid #FFD700;
+      color: #FFD700;
+      padding: 10px 20px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #chat-header a:hover {
+      background-color: #FFD700;
+      color: #111;
+      box-shadow: 0 0 10px #FFD700;
+    }
+
+    #chat-header a:active {
+      background-color: #e5c100;
+      color: #111;
+      box-shadow: 0 0 15px #FFD700;
+    }
+
+    #chat-description {
+      padding: 15px;
+      background-color: #333333;
+      border-top: 1px solid #444444;
+      font-size: 16px;
+      color: #bbb;
+    }
+
+    #chat-window {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 15px;
+      background-color: #2c2c2c;
+      color: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+      position: relative;
+    }
+
+    .message.user {
+      justify-content: flex-end;
+    }
+
+    .message .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #555555;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .message.user .avatar {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+
+    .message .text {
+      background-color: #555555;
+      border-radius: 10px;
+      padding: 10px;
+      max-width: 70%;
+      position: relative;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .message.user .text {
+      background-color: #FFD700;
+      color: #111;
+    }
+
+    .message .text:hover {
+      background-color: #666666;
+    }
+
+    .message.user .text:hover {
+      background-color: #e5c100;
+    }
+
+    #message-container {
+      display: flex;
+      border-top: 1px solid #444444;
+      background-color: #333333;
+      padding: 10px;
+    }
+
+    #message {
+      flex-grow: 1;
+      padding: 15px;
+      border: none;
+      background-color: #555555;
+      color: #fff;
+      border-radius: 5px 0 0 5px;
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #888;
+    }
+
+    /* Bubble Animation */
+    .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.5);
+      opacity: 0.5;
+      animation: bubbleAnimation 10s infinite;
+    }
+
+    @keyframes bubbleAnimation {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateY(50vh) scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Bubbles with different sizes and animation durations */
+    .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 12s; }
+    .bubble:nth-child(2) { width: 60px; height: 60px; left: 30%; animation-duration: 10s; }
+    .bubble:nth-child(3) { width: 50px; height: 50px; left: 50%; animation-duration: 14s; }
+    .bubble:nth-child(4) { width: 70px; height: 70px; left: 70%; animation-duration: 11s; }
+    .bubble:nth-child(5) { width: 30px; height: 30px; left: 90%; animation-duration: 13s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #typing-indicator {
+      display: none;
+      font-style: italic;
+      color: #888;
+    }
+
+    /* Message bubble bouncing effect */
+    .message.bounce {
+      animation: bounce 0.5s;
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(0.95); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <div id="chat-container">
+    <div id="chat-header">
+      <h1>FlexFit Gym Chat</h1>
+      <div>
+        <a href="javascript:history.back();" id="go-back">Go Back</a>
+        <a href="home.html" id="home">Home</a>
+      </div>
+    </div>
+    <div id="chat-description">
+      <p>Connect with our support team and get the help you need. Type your message below to start chatting.</p>
+    </div>
+    <div id="chat-window">
+      <div id="output">
+        <!-- Messages will be dynamically inserted here -->
+      </div>
+      <div id="typing-indicator">A user is typing...</div>
+    </div>
+    <div id="message-container">
+      <input id="message" type="text" placeholder="Type your message..." />
+      <button id="send">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const keywords = {
+      hours: "Our gym is open 24/7 for all your fitness needs!",
+      pricing: "Our membership plans start at $29.99/month. Visit our Pricing page for more details.",
+      location: "We are located at 123 FlexFit St, Fitness City. Come visit us today!"
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const messages = document.getElementById('output');
+      const messageInput = document.getElementById('message');
+      const sendButton = document.getElementById('send');
+      const typingIndicator = document.getElementById('typing-indicator');
+
+      // Display the response based on user input
+      function displayMessage(text, user = false) {
+        const message = document.createElement('div');
+        message.className = `message ${user ? 'user' : ''}`;
+        message.innerHTML = `
+          <div class="avatar"></div>
+          <div class="text">${text}</div>
+        `;
+        messages.appendChild(message);
+        messages.scrollTop = messages.scrollHeight;
+        message.classList.add('bounce'); // Trigger the bounce animation
+      }
+
+      // Show typing indicator
+      function showTypingIndicator() {
+        typingIndicator.style.display = 'block';
+      }
+
+      // Hide typing indicator
+      function hideTypingIndicator() {
+        typingIndicator.style.display = 'none';
+      }
+
+      // Simulate response with a slight delay
+      function handleUserInput(inputText) {
+        showTypingIndicator();
+        setTimeout(() => {
+          hideTypingIndicator();
+          if (inputText.toLowerCase() in keywords) {
+            displayMessage(keywords[inputText.toLowerCase()]);
+          } else {
+            displayMessage("Sorry, I didn't understand that. Can you please rephrase?");
+          }
+        }, 1500);
+      }
+
+      // Send button functionality
+      sendButton.addEventListener('click', () => {
+        const messageText = messageInput.value.trim();
+        if (messageText) {
+          displayMessage(messageText, true);
+          messageInput.value = '';
+          handleUserInput(messageText);
+        }
+      });
+
+      // Handle "Enter" key
+      messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          sendButton.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

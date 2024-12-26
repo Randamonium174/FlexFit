@@ -1,0 +1,172 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4a4949; /* Black background */
+    color: #fff; /* White text */
+}
+
+/* Navbar styles */
+nav {
+    background-color: #000; /* Black background */
+    padding: 5px 20px; /* Reduced padding for a thinner navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #FFEB3B; /* Yellow accent line */
+}
+
+nav .logo img {
+    width: 80px; /* Adjust logo size */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFEB3B; /* Yellow color */
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px; /* Adjusted padding for smaller navbar */
+    border: 2px solid transparent; /* Default border for button outline */
+    border-radius: 5px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFC107; /* Darker yellow on hover */
+    border-color: #FFEB3B; /* Show yellow outline on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Main content section */
+.support-page {
+    display: flex;
+    flex-direction: column; /* Column layout for main sections */
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+/* Chatbot and Feedback Section */
+.chatbot-section, .support-form-section {
+    width: 60%;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #242323; /* Grey background */
+}
+
+.chatbot-section {
+    background-color: #242323; /* Dark grey for chatbot section */
+}
+
+.support-form-section {
+    background-color: #242323; /* Lighter grey for feedback form section */
+}
+
+/* Contact Box Section */
+.contact-box {
+    width: 80%;
+    padding: 20px;
+    background-color: #242323;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.contact-box h2 {
+    font-size: 24px;
+    color: #FFEB3B;
+}
+
+.contact-option {
+    margin-bottom: 30px;
+}
+
+.contact-option h3 {
+    color: #FFEB3B;
+    font-size: 20px;
+}
+
+.contact-option p {
+    font-size: 16px;
+}
+
+.whatsapp-button, .email-button {
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E; /* WhatsApp dark green on hover */
+}
+
+.email-button {
+    background-color: #007BFF; /* Email blue */
+}
+
+.email-button:hover {
+    background-color: #0056b3; /* Email dark blue on hover */
+}
+
+/* List style for points */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Buttons for chatbot and feedback */
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.chatbot-button {
+    background-color: #FFEB3B; /* Yellow button */
+    color: #333;
+}
+
+.support-form-button {
+    background-color: #FFEB3B; /* Yellow button */
+    color: #333;
+}
+
+/* Hover effects for buttons */
+.chatbot-button:hover, .support-form-button:hover {
+    background-color: #FFC107; /* Darker yellow */
+    transform: scale(1.05); /* Slightly enlarges on hover */
+}

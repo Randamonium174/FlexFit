@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('gymbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: yellow;
+            margin-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+            border-bottom: 2px solid white;
+        }
+
+        /* Grid Layout for Membership Plans */
+        .membership-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            padding: 40px;
+            margin-top: 120px;
+        }
+
+        .membership-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .membership-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .membership-card h3 {
+            color: yellow;
+            margin: 10px 0;
+        }
+
+        .membership-card p {
+            margin: 5px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #ffd700;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 300px;
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            color: yellow;
+        }
+
+        .modal button {
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .modal button:hover {
+            background-color: #ffd700;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+            color: yellow;
+        }
+
+        .total-amount {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        /* QR Code Modal */
+        .qr-code-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 300px;
+            text-align: center;
+        }
+
+        .qr-code-modal img {
+            width: 100%;
+            height: auto;
+        }
+
+        .qr-code-modal button {
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .qr-code-modal button:hover {
+            background-color: #ffd700;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="logo.png" alt="Gym Logo">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+    </div>
+
+    <!-- Title -->
+    <h1>Choose Your Membership Plan</h1>
+
+    <!-- Membership Plans Grid -->
+    <div class="membership-container">
+        <div class="membership-card" id="plan1">
+            <img src="mem1.jpg" alt="Flex Starter">
+            <h3>Flex Starter</h3>
+            <p>1-Month Plan</p>
+            <p>RS 599</p>
+            <button class="btn" onclick="showDetails(0)">View Details</button>
+        </div>
+
+        <div class="membership-card" id="plan2">
+            <img src="mem2.jpg" alt="Strength Builder">
+            <h3>Strength Builder</h3>
+            <p>3-Month Plan</p>
+            <p>RS 1299</p>
+            <button class="btn" onclick="showDetails(1)">View Details</button>
+        </div>
+
+        <div class="membership-card" id="plan3">
+            <img src="mem3.jpg" alt="Power Surge">
+            <h3>Power Surge</h3>
+            <p>6-Month Plan</p>
+            <p>RS 2099</p>
+            <button class="btn" onclick="showDetails(2)">View Details</button>
+        </div>
+
+        <div class="membership-card" id="plan4">
+            <img src="mem4.jpg" alt="Peak Performance">
+            <h3>Peak Performance</h3>
+            <p>1-Year Plan</p>
+            <p>RS 5555</p>
+            <button class="btn" onclick="showDetails(3)">View Details</button>
+        </div>
+    </div>
+
+    <!-- Plan Details Modal -->
+    <div class="modal" id="planDetailsModal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalPlanName">Plan Name</h2>
+        <p id="modalPlanDuration">Plan Duration</p>
+        <p id="modalPlanPrice">Price</p>
+        <h3>Choose Your Add-ons:</h3>
+        <ul>
+            <li><input type="radio" name="trainer" value="0" checked> No Trainer</li>
+            <li><input type="radio" name="trainer" value="1000"> 1-Month Training (RS 1000)</li>
+            <li><input type="radio" name="trainer" value="2500"> 3-Month Training (RS 2500)</li>
+            <li><input type="radio" name="trainer" value="4800"> 6-Month Training (RS 4800)</li>
+            <li><input type="radio" name="trainer" value="9000"> 1-Year Training (RS 9000)</li>
+        </ul>
+        <div class="total-amount">
+            <p>Total Amount: RS <span id="totalAmount">0</span></p>
+        </div>
+        <button onclick="calculateTotal()">Confirm & Pay</button>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div class="qr-code-modal" id="qrCodeModal">
+        <h2>Pay via Google Pay</h2>
+        <img src="https://www.qr-code-generator.com/wp-content/themes/qr/new_structure/img/qr-code-placeholder.svg" alt="QR Code">
+        <p>Total: RS <span id="qrTotalAmount">0</span></p>
+        <button onclick="closeQRCodeModal()">Close</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Gym Membership</p>
+    </div>
+
+    <script>
+        let plans = [
+            { name: 'Flex Starter', duration: '1 Month', price: 599 },
+            { name: 'Strength Builder', duration: '3 Months', price: 1299 },
+            { name: 'Power Surge', duration: '6 Months', price: 2099 },
+            { name: 'Peak Performance', duration: '1 Year', price: 5555 }
+        ];
+
+        function showDetails(planIndex) {
+            let plan = plans[planIndex];
+            document.getElementById("modalPlanName").innerText = plan.name;
+            document.getElementById("modalPlanDuration").innerText = plan.duration;
+            document.getElementById("modalPlanPrice").innerText = "RS " + plan.price;
+            document.getElementById("totalAmount").innerText = plan.price;
+            document.getElementById("planDetailsModal").style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById("planDetailsModal").style.display = 'none';
+        }
+
+        function calculateTotal() {
+            let selectedTrainerOption = document.querySelector('input[name="trainer"]:checked');
+            let trainerFee = selectedTrainerOption ? parseInt(selectedTrainerOption.value) : 0;
+            let planPrice = parseInt(document.getElementById("totalAmount").innerText);
+            let totalAmount = planPrice + trainerFee;
+            document.getElementById("totalAmount").innerText = totalAmount;
+            document.getElementById("qrTotalAmount").innerText = totalAmount;
+            document.getElementById("qrCodeModal").style.display = 'block';
+        }
+
+        function closeQRCodeModal() {
+            document.getElementById("qrCodeModal").style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

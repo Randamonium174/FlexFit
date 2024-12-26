@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexFit Challenges</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #111), url('challenges-bg.jpg') center/cover no-repeat;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #222;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+        }
+
+        .navbar a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #fff;
+        }
+
+        .challenges-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .challenges-section h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 40px;
+        }
+
+        .zigzag-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .zigzag-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .zigzag-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .retro-image {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+        }
+
+        .description-box {
+            width: 50%;
+        }
+
+        .description-box h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .description-box p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #ddd;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 1);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: rgba(255, 215, 0, 0.5);
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #222;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">FlexFit</a>
+        </div>
+        <div>
+            
+            <a href="home.html">Home</a>
+        </div>
+    </nav>
+
+    <!-- Section 3: Challenges with FlexFit -->
+    <section class="challenges-section">
+        <h1>Challenges with FlexFit</h1>
+        <div class="zigzag-container">
+            <div class="zigzag-item">
+                <img src="chall1.jpg" alt="Ignite Challenge" class="retro-image">
+                <div class="description-box">
+                    <h3>Ignite Challenge</h3>
+                    <p>Kickstart your fitness journey with FlexFit Ignite! A mix of cardio, strength, and endurance exercises designed to get you moving and motivated. Perfect for all fitness levels.</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+            </div>
+            <div class="zigzag-item reverse">
+                <div class="description-box">
+                    <h3>Hustle Challenge</h3>
+                    <p>Get fit, stay active with FlexFit Hustle! High-energy, quick workouts that burn fat and tone muscles. A great challenge for those looking to hustle and stay on track.</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+                <img src="chall2.jpg" alt="Hustle Challenge" class="retro-image">
+            </div>
+            <div class="zigzag-item">
+                <img src="chall3.jpg" alt="Beast Mode Challenge" class="retro-image">
+                <div class="description-box">
+                    <h3>Beast Mode Challenge</h3>
+                    <p>Push your limits with FlexFit Beast Mode! Intense workouts to help you build strength, power, and stamina. Get ready to work hard and see amazing results.</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+            </div>
+            <div class="zigzag-item reverse">
+                <div class="description-box">
+                    <h3>Xtreme Challenge</h3>
+                    <p>Take it to the extreme with FlexFit Xtreme! A tough, advanced program to push your strength and endurance to the max. Ready to conquer your toughest challenge?</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+                <img src="chall4.jpg" alt="Xtreme Challenge" class="retro-image">
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FlexFit Gym. All rights reserved.</p>
+    </footer>
+</body>
+</html>

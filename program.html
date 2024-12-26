@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexFit Program</title>
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('planbg.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar img {
+            height: 50px; /* Adjust logo size */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: yellow;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+        /* Program Cards Section */
+        .program-container, .activities-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+            gap: 20px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .program-card, .activity-card {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card img, .activity-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .description-box {
+            padding: 20px;
+        }
+
+        .description-box h2 {
+            color: yellow;
+            margin-bottom: 10px;
+        }
+
+        .description-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            color: yellow;
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #333;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            border-radius: 10px;
+        }
+
+        .modal-content h4 {
+            color: yellow;
+        }
+
+        .modal-content ul {
+            color: white;
+        }
+
+        .modal-content ul li {
+            margin: 10px 0;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .sign-up-button {
+            display: inline-block;
+            text-decoration: none;
+            color: yellow;
+            font-weight: bold;
+            border: 2px solid yellow;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .sign-up-button:hover {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="logo.png" alt="FlexFit Logo"> <!-- Replace with your logo image path -->
+        <div class="nav-links">
+            <a href="#home" id="home-btn">Home</a>
+            <a href="#support" id="support-btn">Support</a>
+        </div>
+    </div>
+
+    <!-- Set Your Goal Title -->
+    <div class="goal-section">
+        <h1 style="text-align: center; color: yellow; margin-top: 50px;">Set Your Goal</h1>
+    </div>
+
+    <!-- Program Cards Container -->
+    <div class="program-container">
+        <!-- Card 1: Weight Gain -->
+        <div class="program-card" id="program1">
+            <img src="pro1.jpg" alt="Weight Gain Program Image">
+            <div class="description-box">
+                <h2>Weight Gain</h2>
+                <p>Designed to help you gain weight safely and effectively through balanced nutrition and targeted exercises.</p>
+            </div>
+        </div>
+
+        <!-- Card 2: Weight Loss -->
+        <div class="program-card" id="program2">
+            <img src="pro2.jpg" alt="Weight Loss Program Image">
+            <div class="description-box">
+                <h2>Weight Loss</h2>
+                <p>A personalized program focused on sustainable weight loss through healthy eating and fitness routines.</p>
+            </div>
+        </div>
+
+        <!-- Card 3: Muscle Gain -->
+        <div class="program-card" id="program3">
+            <img src="pro3.jpg" alt="Muscle Gain Program Image">
+            <div class="description-box">
+                <h2>Muscle Gain</h2>
+                <p>Build muscle mass with our specialized strength training and muscle-building nutrition plan.</p>
+            </div>
+        </div>
+
+        <!-- Card 4: Fat Loss -->
+        <div class="program-card" id="program4">
+            <img src="plan5.jpg" alt="Fat Loss Program Image">
+            <div class="description-box">
+                <h2>Fat Loss</h2>
+                <p>Reduce body fat and improve muscle definition with effective cardio and strength routines.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities Section -->
+    <div class="goal-section">
+        <h1 style="text-align: center; color: yellow; margin-top: 50px;">Activities</h1>
+    </div>
+
+    <!-- Activities Cards Container -->
+    <div class="activities-container">
+        <!-- Card 1: Strength Training -->
+        <div class="activity-card" id="activity1">
+            <img src="strength.jpg" alt="Strength Training">
+            <div class="description-box">
+                <h2>Strength Training</h2>
+                <p>Build muscle, improve strength, and increase your overall fitness with focused weight training.</p>
+            </div>
+        </div>
+
+        <!-- Card 2: Core Strengthening -->
+        <div class="activity-card" id="activity2">
+            <img src="core.jpg" alt="Core Strengthening">
+            <div class="description-box">
+                <h2>Core Strengthening</h2>
+                <p>Focus on strengthening your core muscles to improve stability and posture.</p>
+            </div>
+        </div>
+
+        <!-- Card 3: General Fitness -->
+        <div class="activity-card" id="activity3">
+            <img src="fitness.jpg" alt="General Fitness">
+            <div class="description-box">
+                <h2>General Fitness</h2>
+                <p>A well-rounded fitness program to improve endurance, strength, and flexibility.</p>
+            </div>
+        </div>
+
+        <!-- Card 4: Workout Ignition -->
+        <div class="activity-card" id="activity4">
+            <img src="workout.jpg" alt="Workout Ignition">
+            <div class="description-box">
+                <h2>Workout Ignition</h2>
+                <p>Get energized and motivated with our high-intensity workout sessions designed to boost performance.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Program/Activity Details -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h4 id="program-title">Program Title</h4>
+            <ul id="program-benefits">
+                <!-- Benefits list will be dynamically inserted here -->
+            </ul>
+            <a href="signup.html" class="sign-up-button">Sign Up Now</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FlexFit. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Program data (benefits for each program)
+        const programData = {
+            program1: {
+                title: "Weight Gain",
+                benefits: [
+                    "Personalized Nutritional Plans to promote healthy weight gain.",
+                    "Strength Training Workouts to build lean muscle and increase strength.",
+                    "Weekly Check-ins with experts to monitor your progress and adjust your plan.",
+                    "Improved Energy and strength for daily activities and overall wellness.",
+                    "Long-term Weight Maintenance strategies to help you sustain your weight gains."
+                ]
+            },
+            program2: {
+                title: "Weight Loss",
+                benefits: [
+                    "Low-Calorie Meal Plans that help you lose fat while keeping your energy high.",
+                    "HIIT Workouts that maximize fat burning in less time.",
+                    "Weekly Check-ins to track your progress and adjust your plan.",
+                    "Sustainable Lifestyle Changes that help you make healthy habits last.",
+                    "Improved Mental and Physical Wellness throughout your journey."
+                ]
+            },
+            program3: {
+                title: "Muscle Gain",
+                benefits: [
+                    "Progressive Strength Training to help you build muscle and increase strength.",
+                    "High-Protein Meal Plans that support muscle recovery and growth.",
+                    "Personalized Coaching to ensure proper technique and avoid injury.",
+                    "Long-Term Results with strategies for sustaining muscle growth.",
+                    "Increased Confidence and physical performance."
+                ]
+            },
+            program4: {
+                title: "Fat Loss",
+                benefits: [
+                    "Cardio Workouts designed to burn fat and improve endurance.",
+                    "Healthy Meal Plans focused on fat loss while preserving muscle.",
+                    "Personalized Fat Loss Strategies tailored to your body type and goals.",
+                    "Improved Body Composition with a focus on losing fat while maintaining muscle.",
+                    "Enhanced Stamina and energy levels."
+                ]
+            },
+            activity1: {
+                title: "Strength Training",
+                benefits: [
+                    "Build muscle and improve strength with targeted exercises.",
+                    "Boost metabolism and enhance overall physical performance.",
+                    "Increase bone density and improve joint health."
+                ]
+            },
+            activity2: {
+                title: "Core Strengthening",
+                benefits: [
+                    "Strengthen the muscles around your spine for better stability.",
+                    "Improve posture and prevent back pain.",
+                    "Increase balance and coordination for daily activities."
+                ]
+            },
+            activity3: {
+                title: "General Fitness",
+                benefits: [
+                    "Enhance cardiovascular health and endurance.",
+                    "Improve flexibility and overall mobility.",
+                    "Achieve overall wellness by combining different workout methods."
+                ]
+            },
+            activity4: {
+                title: "Workout Ignition",
+                benefits: [
+                    "Boost energy levels and kickstart your metabolism.",
+                    "Increase mental focus and motivation for more intense workouts.",
+                    "Improve endurance and stamina for better performance."
+                ]
+            }
+        };
+
+        // Get the modal
+        const modal = document.getElementById("myModal");
+
+        // Get all program and activity cards
+        const programCards = document.querySelectorAll('.program-card');
+        const activityCards = document.querySelectorAll('.activity-card');
+
+        // Function to show modal with the program or activity details
+        function showModal(id) {
+            const data = programData[id];
+            if (!data) return;
+
+            document.getElementById("program-title").textContent = data.title;
+            const benefitsList = document.getElementById("program-benefits");
+            benefitsList.innerHTML = '';
+            data.benefits.forEach(benefit => {
+                const li = document.createElement("li");
+                li.textContent = benefit;
+                benefitsList.appendChild(li);
+            });
+
+            modal.style.display = "block";
+        }
+
+        // Add event listeners to program cards
+        programCards.forEach(card => {
+            card.addEventListener('click', () => {
+                showModal(card.id);
+            });
+        });
+
+        // Add event listeners to activity cards
+        activityCards.forEach(card => {
+            card.addEventListener('click', () => {
+                showModal(card.id);
+            });
+        });
+
+        // Close the modal when the user clicks on <span> (x)
+        const closeModal = document.getElementsByClassName("close")[0];
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
